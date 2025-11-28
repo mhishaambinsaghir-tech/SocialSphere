@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Sphere PK - Futuristic Marketing</title>
+    <!-- Tailwind CSS CDN -->
+
+    <!-- Google Font: Poppins for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/png" href="/assets/SS_LOGO_S-CBJyNgMq.PNG">
+    <!-- Lucide Icons for clean symbols -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script type="module" crossorigin src="/assets/index-BapND8U9.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-kudyRnTz.css">
+</head>
+
+<body class="min-h-screen antialiased">
+
+    <!-- Fixed Background Sphere/Blob Element -->
+    <div id="fixed-background-element"></div>
+
+    <!-- Header / Navigation -->
+    <header id="header" class="glass-card sticky top-3 mx-2 sm:mx-4 lg:mx-8 p-4 z-50 rounded-xl">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-2xl font-extrabold tracking-wider" id="logo-text">
+                Social Sphere <span class="neon-accent">PK</span>
+            </div>
+            <nav class="hidden md:flex space-x-8 font-semibold text-sm items-center">
+                <a href="#services" class="hover:text-cyan-300 transition duration-300">Services</a>
+                <a href="#portfolio" class="hover:text-cyan-300 transition duration-300">Portfolio</a>
+                <a href="#testimonials" class="hover:text-cyan-300 transition duration-300">Clients</a>
+                <a href="#contact"
+                    class="px-4 py-2 rounded-full border border-current hover:bg-current transition duration-300">Get
+                    Started</a>
+                <!-- Toggle Button for Desktop -->
+                <button id="theme-toggle-desktop"
+                    class="text-white hover:opacity-80 transition duration-300 ml-4 p-2 rounded-full glass-card">
+                    <!-- Icon will be set by JS -->
+                </button>
+            </nav>
+
+            <!-- Mobile Menu and Toggle Button -->
+            <div class="md:hidden flex items-center space-x-4">
+                <button id="theme-toggle-mobile" class="text-white focus:outline-none p-2 rounded-full glass-card">
+                    <!-- Icon will be set by JS -->
+                </button>
+                <button class="text-white focus:outline-none">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- 3. Portfolio Section (Visual Grid) -->
+        <section id="portfolio" class="container mx-auto px-6 py-20" data-aos="fade-up">
+            <h2 class="text-4xl font-bold text-center mb-16 uppercase tracking-wider">
+                Our <span class="neon-accent">Digital</span> Canvas
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-6">
+                <!-- Portfolio Item 1 (Video) -->
+                <div
+                    class="glass-card h-40 md:h-64 flex items-center justify-center rounded-2xl p-4 overflow-hidden relative group">
+                    <div class="absolute inset-0 bg-white opacity-5 group-hover:opacity-10 transition duration-500">
+                    </div>
+                    <p class="text-xl font-bold relative z-10 transition duration-500 group-hover:text-cyan-400">Video
+                        Campaign</p>
+                </div>
+                <!-- Portfolio Item 2 (Reel) -->
+                <div
+                    class="glass-card h-40 md:h-64 flex items-center justify-center rounded-2xl p-4 overflow-hidden relative group">
+                    <div class="absolute inset-0 bg-white opacity-5 group-hover:opacity-10 transition duration-500">
+                    </div>
+                    <p class="text-xl font-bold relative z-10 transition duration-500 group-hover:text-cyan-400">
+                        Before/After Redesign</p>
+                </div>
+                <!-- Portfolio Item 3 (UGC) -->
+                <div
+                    class="glass-card h-40 md:h-64 flex items-center justify-center rounded-2xl p-4 overflow-hidden relative group">
+                    <div class="absolute inset-0 bg-white opacity-5 group-hover:opacity-10 transition duration-500">
+                    </div>
+                    <p class="text-xl font-bold relative z-10 transition duration-500 group-hover:text-cyan-400">UGC
+                        Sample</p>
+                </div>
+                <!-- Portfolio Item 4 (Ad Creative) -->
+                <div
+                    class="glass-card h-40 md:h-64 flex items-center justify-center rounded-2xl p-4 overflow-hidden relative group">
+                    <div class="absolute inset-0 bg-white opacity-5 group-hover:opacity-10 transition duration-500">
+                    </div>
+                    <p class="text-xl font-bold relative z-10 transition duration-500 group-hover:text-cyan-400">Ad
+                        Creative</p>
+                </div>
+                <!-- Portfolio Item 5 (Reel) -->
+                <div
+                    class="glass-card h-40 md:h-64 flex items-center justify-center rounded-2xl p-4 overflow-hidden relative group">
+                    <div class="absolute inset-0 bg-white opacity-5 group-hover:opacity-10 transition duration-500">
+                    </div>
+                    <p class="text-xl font-bold relative z-10 transition duration-500 group-hover:text-cyan-400">Reel
+                        Series</p>
+                </div>
+                <!-- Portfolio Item 6 (Design) -->
+                <div
+                    class="glass-card h-40 md:h-64 flex items-center justify-center rounded-2xl p-4 overflow-hidden relative group">
+                    <div class="absolute inset-0 bg-white opacity-5 group-hover:opacity-10 transition duration-500">
+                    </div>
+                    <p class="text-xl font-bold relative z-10 transition duration-500 group-hover:text-cyan-400">Visual
+                        Identity</p>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="#contact"
+                    class="px-8 py-3 rounded-full text-sm font-semibold border border-gray-500 text-gray-500 hover:border-white hover:text-white transition duration-300">Explore
+                    Full Portfolio</a>
+            </div>
+        </section>
+
+        <!-- 4. Testimonials Section (Single large glass quote) -->
+        <section id="testimonials" class="px-6 py-20" data-aos="zoom-in">
+            <div class="container mx-auto max-w-4xl">
+                <h2 class="text-4xl font-bold text-center mb-16 uppercase tracking-wider">
+                    Client <span class="neon-accent">Feedback</span>
+                </h2>
+                <div class="glass-card p-10 rounded-3xl text-center">
+                    <i data-lucide="quote" class="w-10 h-10 neon-accent mx-auto mb-6"></i>
+                    <p class="text-2xl italic text-gray-400 leading-relaxed mb-6">
+                        "Social Sphere PK is the reason we hit our Q4 sales goals. Their UGC strategy was flawless,
+                        resulting in an unprecedented 4.5x ROAS. The professionalism and creativity are unmatched."
+                    </p>
+                    <div class="text-lg font-semibold">
+                        — Sarah L.
+                        <span class="block text-sm text-gray-500 font-normal">CMO, Luxury E-Commerce Brand</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Contact Section (Glass Form) -->
+        <section id="contact" class="container mx-auto px-6 py-20" data-aos="fade-up">
+            <div class="max-w-xl mx-auto text-center">
+                <h2 class="text-4xl font-bold mb-4 uppercase tracking-wider">
+                    Ready to <span class="neon-accent">Connect?</span>
+                </h2>
+                <p class="text-lg text-gray-400 mb-10">
+                    Let's discuss how we can transform your social media presence with strategic content and growth
+                    models.
+                </p>
+                <form class="space-y-6">
+                    <input type="text" placeholder="Your Name" class="glass-input w-full p-4 rounded-xl" required>
+                    <input type="email" placeholder="Your Work Email" class="glass-input w-full p-4 rounded-xl"
+                        required>
+                    <select class="glass-input w-full p-4 rounded-xl" required>
+                        <option value="" disabled selected>Select Primary Service Interest</option>
+                        <option value="videography">Premium Videography</option>
+                        <option value="management">Social Media Management</option>
+                        <option value="ads">Ads Management</option>
+                        <option value="ugc">UGC / Content Creation</option>
+                    </select>
+                    <textarea placeholder="Tell us about your project and goals..." rows="5"
+                        class="glass-input w-full p-4 rounded-xl resize-none" required></textarea>
+                    <button type="submit"
+                        class="cta-button w-full text-lg font-bold py-4 rounded-xl uppercase tracking-wider">
+                        Send Strategic Brief
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="glass-card mx-2 sm:mx-4 lg:mx-8 mt-10 p-6 rounded-xl">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+            <p>&copy; 2025 Social Sphere PK. All rights reserved. Future is Social.</p>
+            <div class="flex space-x-6 mt-4 md:mt-0">
+                <a href="#" class="hover:text-white transition duration-300">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition duration-300">Terms of Service</a>
+                <a href="https://twitter.com/socialsphere" target="_blank"
+                    class="hover:text-white transition duration-300">
+                    <i data-lucide="twitter" class="w-4 h-4 inline-block"></i>
+                </a>
+                <a href="https://linkedin.com/socialsphere" target="_blank"
+                    class="hover:text-white transition duration-300">
+                    <i data-lucide="linkedin" class="w-4 h-4 inline-block"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Initialize Lucide Icons and JavaScript for smooth hue animation and theme toggle -->
+</body>
+
+</html>

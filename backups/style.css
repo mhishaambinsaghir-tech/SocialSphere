@@ -1,0 +1,471 @@
+@import "tailwindcss";
+
+:root {
+    /* Dynamic Hue Range */
+    --hue-start: 190;
+    /* Teal/Aqua */
+    --hue-end: 260;
+    /* Royal Blue/Purple */
+    --current-hue: var(--hue-start);
+
+    /* --- DARK MODE (Default) --- */
+    --bg-main: #070707;
+    --text-main: #ffffff;
+    --text-secondary: #9CA3AF;
+    /* Tailwind gray-400 */
+    --accent-lightness: 60%;
+    /* Brightness for accent on dark background */
+    --accent-glow: 80%;
+    /* Brighter glow for neon */
+    --glass-base: rgba(255, 255, 255, 0.08);
+    /* Transparent white */
+    --glass-shadow: rgba(0, 0, 0, 0.2);
+    --cta-text: var(--bg-main);
+    /* Dark text on bright button */
+    --input-base: rgba(255, 255, 255, 0.05);
+
+    /* --- LIGHT MODE Variables --- */
+    --bg-light: #F7F7F7;
+    --text-dark: #070707;
+    --text-dark-secondary: #4B5563;
+    /* Tailwind gray-600 */
+    --accent-lightness-light: 30%;
+    /* Darker accent for light background */
+    --accent-glow-light: 30%;
+    --glass-base-light: rgba(0, 0, 0, 0.05);
+    /* Transparent black */
+    --glass-shadow-light: rgba(0, 0, 0, 0.1);
+    --cta-text-light: #ebdcdc;
+    /* White text on dark button (in light mode) */
+    --input-base-light: rgba(0, 0, 0, 0.03);
+}
+
+/* --- BODY & THEME SWITCHING --- */
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.light-mode {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+.light-mode .text-gray-400 {
+    color: var(--text-dark-secondary) !important;
+}
+
+/* --- Fixed Background Sphere/Blob Styles --- */
+@keyframes color-pulse {
+    0% {
+        box-shadow: 0 0 120px 60px hsla(var(--hue-start), 100%, 50%, 0.4);
+        transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    }
+
+    50% {
+        box-shadow: 0 0 140px 80px hsla(var(--hue-end), 100%, 50%, 0.5);
+        transform: translate(-50%, -50%) scale(1.05) rotate(5deg);
+    }
+
+    100% {
+        box-shadow: 0 0 120px 60px hsla(var(--hue-start), 100%, 50%, 0.4);
+        transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    }
+}
+
+#fixed-background-element {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    background-color: transparent;
+    border-radius: 50%;
+    z-index: -1;
+    filter: blur(50px);
+    animation: color-pulse 15s ease-in-out infinite alternate;
+    opacity: 0.5;
+    /* Default visibility */
+    transition: opacity 0.5s ease;
+}
+
+/* Hide or subtly dim the blob in light mode */
+.light-mode #fixed-background-element {
+    opacity: 0.6;
+    box-shadow: 0 0 150px 80px hsla(var(--current-hue), 100%, 50%, 0.5);
+    animation: color-pulse-light 15s ease-in-out infinite alternate;
+}
+
+
+#image {
+    height: 13rem;
+    /* Fixed height */
+    width: auto;
+    /* Maintain aspect ratio */
+    transition: all 0.3s ease;
+    /* Smooth fade or resize */
+}
+
+
+@media (min-width: 768px) {
+    #fixed-background-element {
+        width: 500px;
+        height: 500px;
+    }
+}
+
+/* --- End Fixed Background Sphere/Blob Styles --- */
+
+
+/* --- Glassmorphism Styles --- */
+.glass-card {
+    /* Default: Dark Mode */
+    background-color: var(--glass-base);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 2px solid hsla(var(--current-hue), 80%, var(--accent-lightness), 0.5);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px 0 var(--glass-shadow);
+}
+
+.light-mode .glass-card {
+    /* Light Mode */
+    background-color: var(--glass-base-light);
+    border: 2px solid hsla(var(--current-hue), 80%, var(--accent-lightness-light), 0.5);
+    box-shadow: 0 4px 15px 0 var(--glass-shadow-light);
+}
+
+.glass-card:hover {
+    border-color: hsl(var(--current-hue), 100%, var(--accent-lightness));
+    box-shadow: 0 0 20px hsla(var(--current-hue), 100%, var(--accent-lightness), 0.8);
+}
+
+.light-mode .glass-card:hover {
+    border-color: hsl(var(--current-hue), 100%, var(--accent-lightness-light));
+    box-shadow: 0 0 20px hsla(var(--current-hue), 100%, var(--accent-lightness-light), 0.8);
+}
+
+/* --- Neon Glow/Accent Text --- */
+.neon-accent {
+    /* Default: Dark Mode */
+    color: hsl(var(--current-hue), 100%, var(--accent-glow));
+    text-shadow: 0 0 5px hsla(var(--current-hue), 100%, var(--accent-glow), 0.8), 0 0 10px hsla(var(--current-hue), 100%, var(--accent-glow), 0.5);
+    transition: color 0.1s ease-out;
+}
+
+.light-mode .neon-accent {
+    /* Light Mode: Subtle, darker text glow */
+    color: hsl(var(--current-hue), 100%, var(--accent-glow-light));
+    text-shadow: 0 0 3px hsla(var(--current-hue), 100%, var(--accent-glow-light), 0.3), 0 0 5px hsla(var(--current-hue), 100%, var(--accent-glow-light), 0.1);
+}
+
+/* Revert the portfolio hover color */
+.group-hover\:text-cyan-400 {
+    color: hsl(var(--current-hue), 100%, var(--accent-glow)) !important;
+}
+
+.light-mode .group-hover\:text-cyan-400 {
+    color: hsl(var(--current-hue), 100%, var(--accent-glow-light)) !important;
+}
+
+/* --- CTA Button Styling --- */
+.cta-button {
+    /* Default: Dark Mode */
+    background-color: hsl(var(--current-hue), 100%, var(--accent-lightness));
+    color: var(--cta-text);
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px hsla(var(--current-hue), 100%, var(--accent-lightness), 0.7);
+}
+
+.light-mode .cta-button {
+    /* Light Mode: Darker, high-contrast button */
+    background-color: hsl(var(--current-hue), 100%, var(--accent-lightness-light));
+    color: var(--cta-text-light);
+    /* White text on dark accent background */
+    box-shadow: 0 0 15px hsla(var(--current-hue), 100%, var(--accent-lightness-light), 0.7);
+}
+
+.cta-button:hover {
+    background-color: hsl(var(--current-hue), 100%, 70%);
+    box-shadow: 0 0 25px hsla(var(--current-hue), 100%, var(--accent-lightness), 1);
+    transform: scale(1.05);
+}
+
+.light-mode .cta-button:hover {
+    background-color: hsl(var(--current-hue), 100%, 30%);
+    box-shadow: 0 0 25px hsla(var(--current-hue), 100%, var(--accent-lightness-light), 1);
+}
+
+
+/* --- Input Glass Style --- */
+.glass-input {
+    /* Default: Dark Mode */
+    background-color: var(--input-base);
+    border: 1px solid hsla(var(--current-hue), 80%, var(--accent-lightness), 0.5);
+    color: var(--text-main);
+    transition: border-color 0.1s ease-out;
+}
+
+.light-mode .glass-input {
+    /* Light Mode */
+    background-color: var(--input-base-light);
+    border: 1px solid hsla(var(--current-hue), 80%, var(--accent-lightness-light), 0.5);
+    color: var(--text-dark);
+}
+
+.glass-input:focus {
+    border-color: hsl(var(--current-hue), 100%, var(--accent-glow));
+    box-shadow: 0 0 8px hsla(var(--current-hue), 100%, var(--accent-glow), 0.9);
+}
+
+.light-mode .glass-input:focus {
+    border-color: hsl(var(--current-hue), 100%, var(--accent-glow-light));
+    box-shadow: 0 0 8px hsla(var(--current-hue), 100%, var(--accent-glow-light), 0.9);
+}
+
+/* Hero title specific style */
+.hero-title {
+    font-size: clamp(2.5rem, 8vw, 5.5rem);
+    line-height: 1.1;
+    font-weight: 800;
+}
+
+/* Navigation Contact Button */
+nav a[href="#contact"] {
+    border-color: hsl(var(--current-hue), 100%, var(--accent-lightness));
+    color: var(--text-main);
+    transition: all 0.1s ease-out;
+}
+
+.light-mode nav a[href="#contact"] {
+    color: var(--text-dark);
+    border-color: hsl(var(--current-hue), 100%, var(--accent-lightness-light));
+}
+
+nav a[href="#contact"]:hover {
+    background-color: hsl(var(--current-hue), 100%, var(--accent-lightness));
+    color: var(--bg-main);
+}
+
+.light-mode nav a[href="#contact"]:hover {
+    background-color: hsl(var(--current-hue), 100%, var(--accent-lightness-light));
+    color: var(--bg-light);
+}
+
+/* Custom styles for the select arrow */
+select.glass-input {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    /* Default SVG is white (dark mode) */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1.5em;
+    padding-right: 3rem;
+}
+
+.light-mode select.glass-input {
+    /* Light mode SVG is dark */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23070707" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>');
+}
+
+/* --- PORTFOLIO MODAL STYLES --- */
+
+/* Modal Overlay */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+}
+
+/* Modal Content Box */
+.modal-content {
+    background: var(--glass-base);
+    backdrop-filter: blur(20px);
+    border: 2px solid hsla(var(--current-hue), 80%, var(--accent-lightness), 0.5);
+    border-radius: 24px;
+    max-width: 900px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 2rem;
+    position: relative;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-content {
+    transform: scale(1);
+}
+
+.light-mode .modal-content {
+    background: var(--glass-base-light);
+    border: 2px solid hsla(var(--current-hue), 80%, var(--accent-lightness-light), 0.5);
+}
+
+/* Close Button */
+.modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: transparent;
+    border: none;
+    color: var(--text-main);
+    font-size: 2rem;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+    background: var(--glass-base);
+    color: hsl(var(--current-hue), 100%, var(--accent-glow));
+}
+
+/* Modal Title */
+.modal-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: var(--text-main);
+}
+
+/* Modal Description */
+.modal-description {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+/* Image Carousel */
+.modal-carousel {
+    position: relative;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 16px;
+}
+
+.carousel-slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-slide.active {
+    display: block;
+}
+
+.carousel-slide img,
+.carousel-slide video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+/* Carousel Navigation */
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--glass-base);
+    backdrop-filter: blur(10px);
+    border: 1px solid hsla(var(--current-hue), 80%, var(--accent-lightness), 0.5);
+    color: var(--text-main);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.carousel-nav:hover {
+    background: hsl(var(--current-hue), 100%, var(--accent-lightness));
+    color: var(--bg-main);
+}
+
+.carousel-prev {
+    left: 1rem;
+}
+
+.carousel-next {
+    right: 1rem;
+}
+
+/* Carousel Indicators */
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.carousel-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carousel-indicator.active {
+    background: hsl(var(--current-hue), 100%, var(--accent-glow));
+    width: 30px;
+    border-radius: 5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .modal-content {
+        padding: 1.5rem;
+        width: 95%;
+    }
+
+    .modal-title {
+        font-size: 1.5rem;
+    }
+
+    .carousel-container {
+        height: 250px;
+    }
+
+    .carousel-nav {
+        width: 35px;
+        height: 35px;
+    }
+}

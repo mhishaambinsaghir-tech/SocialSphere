@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Sphere PK - Futuristic Marketing</title>
+    <!-- Tailwind CSS CDN -->
+
+    <!-- Google Font: Poppins for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/png" href="SS_LOGO_S.PNG">
+    <!-- Lucide Icons for clean symbols -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="min-h-screen antialiased">
+
+    <!-- Fixed Background Sphere/Blob Element -->
+    <div id="fixed-background-element"></div>
+
+            </h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Value Prop 1 -->
+                <div class="glass-card p-8 rounded-2xl text-center">
+                    <i data-lucide="target" class="w-12 h-12 neon-accent mx-auto mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">Data-Driven Results</h3>
+                    <p class="text-gray-400">Every strategy is backed by analytics and proven metrics to maximize your ROI.</p>
+                </div>
+
+                <!-- Value Prop 2 -->
+                <div class="glass-card p-8 rounded-2xl text-center">
+                    <i data-lucide="clock" class="w-12 h-12 neon-accent mx-auto mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">24/7 Support</h3>
+                    <p class="text-gray-400">Round-the-clock assistance to keep your campaigns running smoothly.</p>
+                </div>
+
+                <!-- Value Prop 3 -->
+                <div class="glass-card p-8 rounded-2xl text-center">
+                    <i data-lucide="shield-check" class="w-12 h-12 neon-accent mx-auto mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">Proven Track Record</h3>
+                    <p class="text-gray-400">Hundreds of successful campaigns across diverse industries and platforms.</p>
+                </div>
+
+                <!-- Value Prop 4 -->
+                <div class="glass-card p-8 rounded-2xl text-center">
+                    <i data-lucide="sparkles" class="w-12 h-12 neon-accent mx-auto mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">Creative Excellence</h3>
+                    <p class="text-gray-400">Award-winning content that captures attention and drives engagement.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 5. Contact Section (Social Links) -->
+        <section id="contact" class="container mx-auto px-6 py-20">
+            <div class="max-w-2xl mx-auto text-center">
+                <h2 class="text-4xl font-bold mb-4 uppercase tracking-wider">
+                    Ready to <span class="neon-accent">Connect?</span>
+                </h2>
+                <p class="text-lg text-gray-400 mb-12">
+                    Reach out to us directly through your preferred platform
+                </p>
+                
+                <!-- Social Contact Buttons -->
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- WhatsApp -->
+                    <a href="https://wa.me/1234567890" target="_blank" 
+                       class="glass-card p-8 rounded-2xl hover:scale-105 transition-transform duration-300 flex flex-col items-center justify-center group">
+                        <i data-lucide="message-circle" class="w-12 h-12 neon-accent mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2">WhatsApp</h3>
+                        <p class="text-gray-400 text-sm">Chat with us</p>
+                    </a>
+                    
+                    <!-- Instagram -->
+                    <a href="https://instagram.com/socialsphere" target="_blank"
+                       class="glass-card p-8 rounded-2xl hover:scale-105 transition-transform duration-300 flex flex-col items-center justify-center group">
+                        <i data-lucide="instagram" class="w-12 h-12 neon-accent mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2">Instagram</h3>
+                        <p class="text-gray-400 text-sm">Follow us</p>
+                    </a>
+                    
+                    <!-- Phone -->
+                    <a href="tel:+1234567890"
+                       class="glass-card p-8 rounded-2xl hover:scale-105 transition-transform duration-300 flex flex-col items-center justify-center group">
+                        <i data-lucide="phone" class="w-12 h-12 neon-accent mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2">Phone</h3>
+                        <p class="text-gray-400 text-sm">Call us directly</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="glass-card mx-2 sm:mx-4 lg:mx-8 mt-10 p-6 rounded-xl">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+            <p>&copy; 2025 Social Sphere PK. All rights reserved. Future is Social.</p>
+            <div class="flex space-x-6 mt-4 md:mt-0">
+                <a href="#" class="hover:text-white transition duration-300">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition duration-300">Terms of Service</a>
+                <a href="https://twitter.com/socialsphere" target="_blank"
+                    class="hover:text-white transition duration-300">
+                    <i data-lucide="twitter" class="w-4 h-4 inline-block"></i>
+                </a>
+                <a href="https://linkedin.com/socialsphere" target="_blank"
+                    class="hover:text-white transition duration-300">
+                    <i data-lucide="linkedin" class="w-4 h-4 inline-block"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+    <!-- Portfolio Modal -->
+    <div id="portfolio-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button id="modal-close" class="modal-close">&times;</button>
+            <h2 id="modal-title" class="modal-title"></h2>
+            <p id="modal-description" class="modal-description"></p>
+            
+            <div class="modal-carousel">
+                <div class="carousel-container">
+                    <div id="carousel-slides"></div>
+                    <button id="carousel-prev" class="carousel-nav carousel-prev">
+                        <i data-lucide="chevron-left"></i>
+                    </button>
+                    <button id="carousel-next" class="carousel-nav carousel-next">
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </div>
+                <div id="carousel-indicators" class="carousel-indicators"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Initialize Lucide Icons and JavaScript for smooth hue animation and theme toggle -->
+    <script type="module" src="script.js"></script>
+
+</body>
+
+</html>
