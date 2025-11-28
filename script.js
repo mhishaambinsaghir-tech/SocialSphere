@@ -1,19 +1,7 @@
-// =================================================================
-// 🔑 VITE ASSET & MODULE IMPORTS (CRITICAL FIXES)
-// =================================================================
-// 1. Third-party library imports (Vite resolves "aos" from node_modules)
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-// 2. Image imports (Vite copies these to /docs/assets/ and gives the correct URL)
-//    NOTE: Adjust the paths "./SS_LOGO_S.PNG" and "./hh.png" 
-//    if your images are not in the same directory as this JS file.
-import lightLogo from './SS_LOGO_S.PNG';
-import darkLogo from './hh.png';
 
-// Import lucide (assuming this is how you import it)
-import * as lucide from 'lucide';
-// =================================================================
 
 lucide.createIcons();
 
@@ -26,8 +14,7 @@ const themeToggleMobile = document.getElementById('theme-toggle-mobile');
 
 function updateThemeToggleIcon(isLightMode) {
     const icon = isLightMode ? 'moon' : 'sun';
-    // 💡 USE THE IMPORTED VARIABLES which contain the correct public paths
-    const image = isLightMode ? lightLogo : darkLogo;
+    const image = isLightMode ? 'SS_LOGO_S.PNG' : 'hh.png'
     const iconHtml = `<i data-lucide="${icon}" class="w-5 h-5"></i>`;
 
     let a = document.getElementById('image')
@@ -71,6 +58,7 @@ function initializeTheme() {
     }
 }
 
+// Attach event listeners
 // Attach event listeners
 themeToggleDesktop.addEventListener('click', toggleTheme);
 themeToggleMobile.addEventListener('click', toggleTheme);
